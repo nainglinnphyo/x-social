@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { View, StyleSheet, Image, ImageBackground,Text} from "react-native";
 // import ScreenBackground from '../assets/screen_background.png';
 import MediumVerticalSpace from "app/components/spacer/MediumVerticalSpace";
