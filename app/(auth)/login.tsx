@@ -4,8 +4,8 @@ import { useAuth } from "../../context/AuthProvider";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function Login() {
-  const { setUser,user } = useAuth();
-  console.log(user)
+  const { setUser } = useAuth();
+
   const login = () => {
     setUser({
       name: "John Doe",
