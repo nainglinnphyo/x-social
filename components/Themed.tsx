@@ -21,6 +21,13 @@ type ThemeProps = {
   darkColor?: string;
 };
 
+type ViewThemeProps = {
+  lightColor?: string;
+  darkColor?: string;
+  lightBorderColor?: string;
+  darkBorderColor?: string;
+};
+
 type ButtonThemeProps = {
   lightColor?: string;
   lightTextColor?: string;
@@ -29,6 +36,8 @@ type ButtonThemeProps = {
   title: string;
   textStyle: DefaultText["props"]["style"];
   loading?: boolean;
+  lightBorderColor?: string;
+  darkBorderColor?: string;
 };
 
 type InputThemeProps = {
@@ -43,7 +52,7 @@ type InputThemeProps = {
 };
 
 export type TextProps = ThemeProps & DefaultText["props"];
-export type ViewProps = ThemeProps & DefaultView["props"];
+export type ViewProps = ViewThemeProps & DefaultView["props"];
 export type InputProps = InputThemeProps & DefaultTextInput["props"];
 export type ButtonProps = ButtonThemeProps & DefaultTouchableOpacity["props"];
 
@@ -72,13 +81,29 @@ export function Text(props: TextProps) {
 }
 
 export function View(props: ViewProps) {
-  const { style, lightColor, darkColor, ...otherProps } = props;
+  const {
+    style,
+    lightBorderColor,
+    darkBorderColor,
+    lightColor,
+    darkColor,
+    ...otherProps
+  } = props;
   const backgroundColor = useThemeColor(
     { light: lightColor, dark: darkColor },
     "background"
   );
 
-  return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
+  const borderColor = useThemeColor(
+    { light: lightBorderColor, dark: darkBorderColor },
+    "borderColor"
+  );
+  return (
+    <DefaultView
+      style={[{ backgroundColor, borderColor }, style]}
+      {...otherProps}
+    />
+  );
 }
 
 export function Input(props: InputProps) {
@@ -143,6 +168,8 @@ export function Button(props: ButtonProps) {
       style={style}
       lightColor={props.lightColor}
       darkColor={props.darkColor}
+      lightBorderColor={props.lightBorderColor}
+      darkBorderColor={props.darkBorderColor}
     >
       <DefaultTouchableOpacity
         onPress={props.onPress}

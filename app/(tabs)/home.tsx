@@ -120,18 +120,6 @@ const App = () => {
         // pagingEnabled
         // decelerationRate="fast"
       />
-      <View
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          alignItems: "center",
-          padding: 10,
-        }}
-      >
-        <Text>Current Index: {currentIndex}</Text>
-      </View>
     </View>
   );
 };

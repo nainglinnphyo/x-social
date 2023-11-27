@@ -1,9 +1,18 @@
 import { Link, Stack, Tabs } from "expo-router";
-import { Pressable, useColorScheme } from "react-native";
+import { Pressable, useColorScheme, Image } from "react-native";
 
 import Colors from "../../constants/Colors";
 import HomeHeader from "../../components/HomeHeader";
 import { TabBarIcon, TabBarIonicons } from "../../components/TabBarIcon";
+
+function SearchTitle() {
+  return (
+    <Image
+      style={{ width: 50, height: 50 }}
+      source={{ uri: "https://reactnative.dev/img/tiny_logo.png" }}
+    />
+  );
+}
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -33,9 +42,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="search"
         options={{
-          title: "Tab Two",
+          headerShown: false,
           tabBarIcon: ({ color }: { color: string }) => (
             <TabBarIonicons name="ios-search-sharp" color={color} />
           ),

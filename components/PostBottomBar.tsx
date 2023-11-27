@@ -16,9 +16,9 @@ const PostBottomBar = ({ isLike }: { isLike: boolean }) => {
           //   color={}
         />
 
-        {/* <Text style={{ fontSize: 13 }} lightColor="#a0a0a0" darkColor="#fff">
+        <Text style={{ fontSize: 13 }} lightColor="#a0a0a0" darkColor="#fff">
           1 like
-        </Text> */}
+        </Text>
       </View>
       <Feather
         name="message-circle"
