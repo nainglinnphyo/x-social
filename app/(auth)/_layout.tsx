@@ -6,15 +6,8 @@ import { TabBarIcon } from "../../components/TabBarIcon";
 const _AuthLayout = () => {
   return (
     <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen
-        name="login"
-        options={{
-          title: "Auth",
-          tabBarIcon: ({ color }: { color: string }) => (
-            <TabBarIcon name="code" color={color} />
-          ),
-        }}
-      />
+      <Stack.Screen name="login" />
+      <Stack.Screen name="register" />
     </Stack>
   );
 };

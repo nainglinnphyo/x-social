@@ -10,19 +10,16 @@ import {
 import { StyleSheet, Image, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
 
-const index = () => {
-  const [login, setLogin] = useState(false);
+const register = () => {
+  const [register, setRegister] = useState(false);
+
   const router = useRouter();
 
   const handlePress = () => {
-    setLogin(!login);
+    setRegister(!register);
     setTimeout(() => {
       router.replace("/home");
     }, 3000);
-  };
-
-  const registerPress = () => {
-    router.push("/register");
   };
   return (
     <SafeAreaView
@@ -47,6 +44,24 @@ const index = () => {
         />
       </View>
       <View style={{ width: "90%" }} lightColor="rgb(241,242,255)">
+        <Input
+          lightColor="white"
+          darkColor="#0d0d0d"
+          placeholder="Username"
+          darkTextColor="white"
+          lightTextColor="dark"
+          darkPlaceholderTextColor="#878787"
+          lightPlaceholderTextColor="#878787"
+          darkBorderColor="#2e2a2a"
+          lightBorderColor="#dddbdb"
+          style={{
+            borderWidth: 1.5,
+            paddingHorizontal: 15,
+            paddingVertical: 10,
+            borderRadius: 6,
+            marginVertical: 2,
+          }}
+        />
         <Input
           lightColor="white"
           darkColor="#0d0d0d"
@@ -85,8 +100,8 @@ const index = () => {
         />
         <Button
           onPress={handlePress}
-          loading={login}
-          title="Login"
+          loading={register}
+          title="Register"
           lightColor="#0070fa"
           darkColor="#0070fa"
           lightTextColor="white"
@@ -101,7 +116,7 @@ const index = () => {
             alignItems: "center",
           }}
         />
-        <View
+        {/* <View
           lightColor="rgb(241,242,255)"
           style={{
             alignItems: "center",
@@ -113,7 +128,7 @@ const index = () => {
           }}
         >
           <Text style={{ textAlign: "center" }}>Don't have an account? </Text>
-          <TouchableOpacity onPress={registerPress}>
+          <TouchableOpacity>
             <Text
               lightColor="#53b4f9"
               darkColor="#53b4f9"
@@ -122,7 +137,7 @@ const index = () => {
               Sign up
             </Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
       </View>
       <View lightColor="rgb(241,242,255)">
         <Text
@@ -146,4 +161,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default index;
+export default register;

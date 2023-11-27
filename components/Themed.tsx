@@ -144,7 +144,10 @@ export function Button(props: ButtonProps) {
       lightColor={props.lightColor}
       darkColor={props.darkColor}
     >
-      <DefaultTouchableOpacity onPress={props.onPress}>
+      <DefaultTouchableOpacity
+        onPress={props.onPress}
+        style={{ width: "100%", alignItems: "center" }}
+      >
         <Text
           lightColor={props.lightTextColor}
           darkColor={props.darkTextColor}

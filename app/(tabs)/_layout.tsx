@@ -1,18 +1,9 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable, useColorScheme } from 'react-native';
+import { Link, Stack, Tabs } from "expo-router";
+import { Pressable, useColorScheme } from "react-native";
 
-import Colors from '../../constants/Colors';
-
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+import Colors from "../../constants/Colors";
+import HomeHeader from "../../components/HomeHeader";
+import { TabBarIcon, TabBarIonicons } from "../../components/TabBarIcon";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -20,34 +11,61 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-      }}>
+        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+        headerTitleAlign: "center",
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          height: 70,
+        },
+      }}
+    >
       <Tabs.Screen
         name="home"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }:{color:string}) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
+          // title: "Tab One",
+          tabBarIcon: ({ color }: { color: string }) => (
+            <TabBarIcon name="home-variant" color={color} />
           ),
+          headerTitle: (props: any) => <HomeHeader {...props} />,
+          headerStyle: {
+            backgroundColor: colorScheme === "dark" ? "#0d0d0d" : "#ffff",
+          },
         }}
       />
       <Tabs.Screen
         name="two"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }:{color:string}) => <TabBarIcon name="code" color={color} />,
+          title: "Tab Two",
+          tabBarIcon: ({ color }: { color: string }) => (
+            <TabBarIonicons name="ios-search-sharp" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="post"
+        options={{
+          title: "Tab Two",
+          tabBarIcon: ({ color }: { color: string }) => (
+            <TabBarIcon name="square-edit-outline" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="notification"
+        options={{
+          title: "Tab Two",
+          tabBarIcon: ({ color }: { color: string }) => (
+            <TabBarIonicons name="heart" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Tab Two",
+          tabBarIcon: ({ color }: { color: string }) => (
+            <TabBarIonicons name="person" color={color} />
+          ),
         }}
       />
     </Tabs>
