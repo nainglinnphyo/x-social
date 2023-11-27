@@ -11,11 +11,11 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+        tabBarActiveTintColor: colorScheme === "dark" ? "#fff" : "#000",
         headerTitleAlign: "center",
         tabBarShowLabel: false,
         tabBarStyle: {
-          height: 70,
+          height: 60,
         },
       }}
     >
@@ -64,7 +64,7 @@ export default function TabLayout() {
         options={{
           title: "Tab Two",
           tabBarIcon: ({ color }: { color: string }) => (
-            <TabBarIonicons name="person" color={color} />
+            <TabBarIonicons name="md-person" color={color} />
           ),
         }}
       />

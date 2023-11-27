@@ -55,7 +55,7 @@ export default function _RootLayout() {
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
   const router = useRouter();
-  const auth = false;
+  const auth = true;
 
   useEffect(() => {
     // const inTabsGroup = segments[0] === '(auth)';

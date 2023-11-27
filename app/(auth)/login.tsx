@@ -18,7 +18,7 @@ const index = () => {
     setLogin(!login);
     setTimeout(() => {
       router.replace("/home");
-    }, 3000);
+    }, 1000);
   };
 
   const registerPress = () => {
@@ -52,7 +52,7 @@ const index = () => {
           darkColor="#0d0d0d"
           placeholder="Email"
           darkTextColor="white"
-          lightTextColor="dark"
+          lightTextColor="#000"
           darkPlaceholderTextColor="#878787"
           lightPlaceholderTextColor="#878787"
           darkBorderColor="#2e2a2a"
@@ -70,7 +70,7 @@ const index = () => {
           darkColor="#0d0d0d"
           placeholder="Password"
           darkTextColor="white"
-          lightTextColor="dark"
+          lightTextColor="#000"
           darkPlaceholderTextColor="#878787"
           lightPlaceholderTextColor="#878787"
           darkBorderColor="#2e2a2a"
